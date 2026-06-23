@@ -12,3 +12,4 @@ export default function LoginPage() {
     </Suspense>
   );
 }
+// تحديث بسيط لتفعيل بناء جديد ✅
