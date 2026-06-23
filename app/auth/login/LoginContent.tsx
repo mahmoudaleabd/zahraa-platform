@@ -55,10 +55,17 @@ function LoginForm() {
 
   const handleGoogleLogin = async () => {
     setLoading(true);
+
+    // ✅ اختيار رابط إعادة التوجيه حسب البيئة (Production / Development)
+    const isProduction = process.env.NODE_ENV === 'production';
+    const redirectTo = isProduction
+      ? 'https://zahraa-platform.vercel.app/auth/callback'
+      : 'http://localhost:3000/auth/callback';
+
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: redirectTo,
       },
     });
 
