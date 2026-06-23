@@ -1,9 +1,14 @@
 // app/auth/login/page.tsx
-export const dynamic = 'force-dynamic';
-import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import LoginContent from './LoginContent';
 
-const LoginContent = dynamic(() => import('./LoginContent'), { ssr: false });
+// منع التوليد الثابت للصفحة
+export const dynamic = 'force-dynamic';
 
 export default function LoginPage() {
-  return <LoginContent />;
+  return (
+    <Suspense fallback={<div className="text-center text-[#a69584] p-8">جاري التحميل...</div>}>
+      <LoginContent />
+    </Suspense>
+  );
 }
