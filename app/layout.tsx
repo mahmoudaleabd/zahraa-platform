@@ -23,3 +23,28 @@ export default function RootLayout({
     </html>
   );
 }
+import './globals.css';
+import { Cairo } from 'next/font/google';
+import BottomNav from '@/components/shared/BottomNav';
+
+const cairo = Cairo({ subsets: ['arabic'], weight: ['400', '600', '700'] });
+
+export const metadata = {
+  title: 'زهراء أكتوبر الجديدة',
+  description: 'سوق العقارات ودليل الخدمات المحلي',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ar" dir="rtl">
+      <body className={`${cairo.className} bg-[#0e0c0a] text-[#f2e8df] antialiased pb-16`}>
+        {children}
+        <BottomNav />
+      </body>
+    </html>
+  );
+}
