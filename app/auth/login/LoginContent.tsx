@@ -178,7 +178,7 @@ function LoginForm() {
 
 export default function LoginContent() {
   return (
-    <Suspense fallback={<div>جاري التحميل...</div>}>
+    <Suspense fallback={<div className="text-center text-[#a69584] p-8">جاري التحميل...</div>}>
       <LoginForm />
     </Suspense>
   );
